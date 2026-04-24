@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#3a4a3a">
+<title>Meditations for Mortals — A 28-Day Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --moss: #4a5d3a;
+    --moss-deep: #3a4a2c;
+    --moss-soft: #6b7a52;
+    --olive: #8a8a5c;
+    --clay: #a67856;
+    --terracotta: #b86b4a;
+    --bark: #5c4530;
+    --bark-deep: #3d2e20;
+    --cream: #f4ede0;
+    --paper: #ede4d3;
+    --sand: #d9ccb0;
+    --ink: #2a2419;
+    --ink-soft: #4a3f30;
+    --rust: #8b4513;
+    --shadow: rgba(58, 46, 32, 0.12);
+    --shadow-deep: rgba(58, 46, 32, 0.25);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 100vh;
+    background-image: 
+      radial-gradient(at 20% 30%, rgba(74, 93, 58, 0.08) 0px, transparent 50%),
+      radial-gradient(at 80% 70%, rgba(166, 120, 86, 0.08) 0px, transparent 50%),
+      radial-gradient(at 50% 90%, rgba(92, 69, 48, 0.06) 0px, transparent 50%);
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  /* Subtle grain texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.18 0 0 0 0 0.12 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 20px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ========== HEADER ========== */
+  header {
+    margin-bottom: 32px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(58, 46, 32, 0.15);
+    position: relative;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--moss);
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(34px, 8vw, 48px);
+    line-height: 1.05;
+    color: var(--bark-deep);
+    letter-spacing: -0.02em;
+    font-variation-settings: 'opsz' 144;
+    margin-bottom: 12px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--moss-deep);
+    font-weight: 300;
+  }
+
+  .subtitle {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .attribution {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    opacity: 0.7;
+    text-transform: uppercase;
+  }
+
+  /* ========== PROGRESS ========== */
+  .progress-block {
+    background: var(--cream);
+    border: 1px solid rgba(58, 46, 32, 0.12);
+    border-radius: 4px;
+    padding: 18px 20px;
+    margin-bottom: 36px;
+    position: relative;
+  }
+
+  .progress-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--moss);
+  }
+
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+    gap: 12px;
+  }
+
+  .progress-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .progress-count {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--bark-deep);
+  }
+
+  .progress-count span {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+
+  .progress-bar {
+    height: 3px;
+    background: rgba(58, 46, 32, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--moss-deep), var(--moss), var(--olive));
+    width: 0%;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .reset-btn {
+    background: none;
+    border: none;
+    color: var(--ink-soft);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 4px 0;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+
+  .reset-btn:hover, .reset-btn:active {
+    opacity: 1;
+    color: var(--terracotta);
+  }
+
+  /* ========== WEEKS ========== */
+  .week {
+    margin-bottom: 18px;
+    background: var(--cream);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px var(--shadow);
+    border: 1px solid rgba(58, 46, 32, 0.08);
+  }
+
+  .week-header {
+    padding: 22px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--paper) 100%);
+    transition: background 0.3s;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .week-header:active {
+    background: var(--sand);
+  }
+
+  .week-header-content {
+    flex: 1;
+  }
+
+  .week-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .week-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--bark-deep);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+
+  .week-subtitle {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-weight: 300;
+  }
+
+  .week-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    margin-left: 16px;
+  }
+
+  .week-progress {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--moss-deep);
+    font-weight: 500;
+  }
+
+  .chevron {
+    width: 12px;
+    height: 12px;
+    border-right: 1.5px solid var(--bark);
+    border-bottom: 1.5px solid var(--bark);
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    margin-bottom: 4px;
+  }
+
+  .week.open .chevron {
+    transform: rotate(-135deg);
+    margin-bottom: -2px;
+  }
+
+  .week-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .week.open .week-body {
+    max-height: 20000px;
+  }
+
+  /* ========== DAYS ========== */
+  .day {
+    border-top: 1px solid rgba(58, 46, 32, 0.08);
+  }
+
+  .day-header {
+    padding: 16px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(244, 237, 224, 0.4);
+    transition: background 0.2s;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .day-header:active {
+    background: var(--paper);
+  }
+
+  .day-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--moss);
+    width: 28px;
+    flex-shrink: 0;
+    letter-spacing: 0.05em;
+  }
+
+  .day-title-wrap {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .day-title {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--bark-deep);
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+  }
+
+  .day-status {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1.5px solid var(--moss-soft);
+    flex-shrink: 0;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .day.completed .day-status {
+    background: var(--moss);
+    border-color: var(--moss-deep);
+  }
+
+  .day.completed .day-status::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%) rotate(45deg);
+    width: 4px;
+    height: 7px;
+    border-right: 1.5px solid var(--cream);
+    border-bottom: 1.5px solid var(--cream);
+  }
+
+  .day-chevron {
+    width: 8px;
+    height: 8px;
+    border-right: 1.2px solid var(--ink-soft);
+    border-bottom: 1.2px solid var(--ink-soft);
+    transform: rotate(45deg);
+    transition: transform 0.3s;
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  .day.open .day-chevron {
+    transform: rotate(-135deg);
+  }
+
+  .day-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--paper);
+  }
+
+  .day.open .day-body {
+    max-height: 3000px;
+  }
+
+  .day-content {
+    padding: 4px 20px 24px;
+  }
+
+  /* ========== CONTENT BLOCKS ========== */
+  .key-idea {
+    background: linear-gradient(135deg, var(--moss-deep), var(--moss));
+    color: var(--cream);
+    padding: 22px 22px 24px;
+    border-radius: 4px;
+    margin: 16px 0 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .key-idea::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    right: 14px;
+    font-family: 'Fraunces', serif;
+    font-size: 100px;
+    color: rgba(244, 237, 224, 0.12);
+    line-height: 1;
+  }
+
+  .key-idea-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 10px;
+  }
+
+  .key-idea-text {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.4;
+    font-style: italic;
+    letter-spacing: -0.01em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section {
+    margin-bottom: 22px;
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--moss-deep);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 16px;
+    height: 1px;
+    background: var(--clay);
+  }
+
+  .section-text {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink);
+  }
+
+  .reflection {
+    background: var(--sand);
+    padding: 18px 20px;
+    border-radius: 4px;
+    border-left: 3px solid var(--clay);
+  }
+
+  .reflection .section-text {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--bark-deep);
+    line-height: 1.5;
+  }
+
+  .action {
+    background: rgba(74, 93, 58, 0.08);
+    padding: 18px 20px;
+    border-radius: 4px;
+    border-left: 3px solid var(--moss);
+  }
+
+  .action .section-text {
+    color: var(--bark-deep);
+    font-weight: 400;
+  }
+
+  /* ========== CHECKBOX ========== */
+  .complete-toggle {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: var(--cream);
+    border: 1px dashed var(--moss-soft);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .complete-toggle:active {
+    background: var(--paper);
+  }
+
+  .day.completed .complete-toggle {
+    background: rgba(74, 93, 58, 0.12);
+    border-style: solid;
+    border-color: var(--moss);
+  }
+
+  .checkbox {
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid var(--moss);
+    border-radius: 3px;
+    flex-shrink: 0;
+    position: relative;
+    background: var(--paper);
+    transition: all 0.2s;
+  }
+
+  .day.completed .checkbox {
+    background: var(--moss-deep);
+    border-color: var(--moss-deep);
+  }
+
+  .day.completed .checkbox::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%) rotate(45deg);
+    width: 6px;
+    height: 11px;
+    border-right: 2px solid var(--cream);
+    border-bottom: 2px solid var(--cream);
+  }
+
+  .complete-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  .day.completed .complete-label {
+    color: var(--moss-deep);
+  }
+
+  /* ========== JOURNAL ========== */
+  .journal {
+    margin-top: 22px;
+    background: var(--cream);
+    border: 1px solid rgba(58, 46, 32, 0.15);
+    border-radius: 4px;
+    padding: 16px 18px;
+    position: relative;
+  }
+
+  .journal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .journal-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .journal-label::before {
+    content: '';
+    width: 16px;
+    height: 1px;
+    background: var(--bark);
+  }
+
+  .journal-status {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--moss);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .journal-status.visible {
+    opacity: 0.7;
+  }
+
+  .journal-textarea {
+    width: 100%;
+    min-height: 110px;
+    background: var(--paper);
+    border: 1px solid rgba(58, 46, 32, 0.1);
+    border-radius: 3px;
+    padding: 14px 14px;
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink);
+    resize: vertical;
+    transition: border-color 0.2s, background 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .journal-textarea:focus {
+    outline: none;
+    border-color: var(--moss);
+    background: #fbf6ea;
+  }
+
+  .journal-textarea::placeholder {
+    color: var(--ink-soft);
+    opacity: 0.5;
+    font-style: italic;
+  }
+
+  .journal-meta {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    opacity: 0.6;
+  }
+
+  @media (min-width: 768px) {
+    .journal-textarea { font-size: 16px; min-height: 130px; }
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    margin-top: 60px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(58, 46, 32, 0.15);
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-soft);
+    opacity: 0.7;
+    line-height: 1.6;
+  }
+
+  footer .ornament {
+    font-family: 'Fraunces', serif;
+    color: var(--clay);
+    margin: 0 8px;
+  }
+
+  /* ========== iPad / larger ========== */
+  @media (min-width: 768px) {
+    .container {
+      padding: 48px 40px 100px;
+    }
+    h1 { font-size: 56px; }
+    .subtitle { font-size: 18px; }
+    .week-title { font-size: 26px; }
+    .day-title { font-size: 17px; }
+    .key-idea-text { font-size: 21px; }
+    .reflection .section-text { font-size: 17px; }
+    .section-text { font-size: 16px; }
+  }
+
+  /* iOS-friendly fix: prevent zoom on tap */
+  button, .week-header, .day-header, .complete-toggle {
+    touch-action: manipulation;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="eyebrow">A 28-Day Companion</div>
+  <h1>Meditations<br>for <em>Mortals</em></h1>
+  <p class="subtitle">Four weeks to embrace your limits and begin to live.</p>
+  <div class="attribution">After Oliver Burkeman</div>
+</header>
+
+<div class="progress-block">
+  <div class="progress-header">
+    <span class="progress-label">Your Progress</span>
+    <span class="progress-count"><span id="progress-num">0</span><span> / 28 days</span></span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <button class="reset-btn" onclick="resetProgress()">Reset all progress</button>
+</div>
+
+<div id="weeks"></div>
+
+<footer>
+  You will die <span class="ornament">·</span> So might as well start now <span class="ornament">·</span>
+</footer>
+
+</div>
+
+<script>
+const data = [
+  {
+    week: 1,
+    title: "Being Finite",
+    subtitle: "Confronting the truth of limited time.",
+    days: [
+      {
+        title: "It's worse than you think",
+        idea: "You will not get on top of it all. Ever. The sooner you accept that, the sooner you can actually live.",
+        summary: "The trap is believing that one day, with enough effort, you'll finally be 'caught up.' You won't. There will always be more demands than time. This isn't pessimism — it's the precondition for doing anything that matters. The relief, when it comes, is realising the goal was never achievable in the first place.",
+        reflection: "What are you currently doing on the assumption that you'll soon reach a state of total control? What might shift if you accepted that state will never arrive?",
+        action: "Today, pick one task on your list you've been telling yourself you 'should get to.' Either do it now in 20 minutes or less, or formally cross it off and accept it won't happen. No third option."
+      },
+      {
+        title: "The Imperfectionist",
+        idea: "You don't need to do everything well. You need to do something — imperfectly — and let that be enough.",
+        summary: "Perfectionism is the friend of procrastination. It dresses itself up as high standards but functions as paralysis. The imperfectionist accepts that any output, while imperfect, beats the perfect output that never exists. This is not lowering the bar — it's recognising the bar was never real.",
+        reflection: "Where is the desire to do something perfectly stopping you from doing it at all?",
+        action: "Identify one thing you've been delaying because it isn't 'ready.' Send it, ship it, post it, or commit to it today in its current state."
+      },
+      {
+        title: "You need only do the next right thing",
+        idea: "You can't see the whole path. You don't need to. You only need to take the next step.",
+        summary: "The mind craves a master plan — a guarantee that today's effort connects to tomorrow's outcome. That guarantee will never come. What you have is right now, and one decision in front of you. Trying to optimise the entire chain at once is what makes most days feel impossible before they've started.",
+        reflection: "What single, small, defensible next action could you take today — without needing to know what comes after it?",
+        action: "Write down the one next action for your most-avoided project. Just one. Then do only that."
+      },
+      {
+        title: "Against productivity debt",
+        idea: "Stop starting each day already in the red. You don't owe the universe a quota.",
+        summary: "Most people open their eyes already feeling behind, as if there's a baseline of output owed before they're allowed to rest. There isn't. You wake up at zero, neither owing nor owed. Anything done today is added — not subtracted from a debt that doesn't exist.",
+        reflection: "What would you do today if you genuinely believed you weren't behind on anything?",
+        action: "Before checking any inbox or list today, write down 3 things — and only 3 — that would make today feel meaningful. Treat anything beyond those as a bonus."
+      },
+      {
+        title: "Consume strategically",
+        idea: "You will never read all the books, watch all the films, or follow all the news. Choose deliberately, then enjoy what you chose.",
+        summary: "The internet has trained an anxious relationship with information — the sense that not knowing the latest thing is a failure. It isn't. Cultivating a smaller, deliberately-curated diet of things to read, listen to and watch will do more for your mind than chasing every new release.",
+        reflection: "What are you consuming out of obligation or FOMO rather than genuine interest?",
+        action: "Unsubscribe from 5 things today — newsletters, podcasts, channels, accounts. Don't replace them with anything."
+      },
+      {
+        title: "Decision hygiene",
+        idea: "Most of your stress comes from undecided decisions, not difficult ones.",
+        summary: "An unmade decision drains energy continuously in the background. The decision itself, once made, almost always feels lighter than the limbo before it. The question is rarely 'what's the right answer' — more often it's 'am I willing to decide and live with it.'",
+        reflection: "What decision have you been postponing? What is the cost of leaving it open?",
+        action: "Pick one open decision and resolve it today — either way. Write it down. Move on."
+      },
+      {
+        title: "The week as it actually is",
+        idea: "You only ever live one week at a time. This one. Not next year, not the version of yourself you're becoming.",
+        summary: "It's tempting to treat the present week as preparation for the real life that begins later. But the real life is this week. The conversations, the work, the meals, the small frustrations. Treating it as prelude is how decades disappear.",
+        reflection: "If this week were the actual point — not a stepping stone — what would you do differently in the next 7 days?",
+        action: "Plan the coming week from the assumption that it counts as much as any future week ever will. Schedule one thing in it that has nothing to do with output."
+      }
+    ]
+  },
+  {
+    week: 2,
+    title: "Taking Action",
+    subtitle: "On moving forward without certainty.",
+    days: [
+      {
+        title: "On not waiting for clarity",
+        idea: "Clarity comes from acting, not from thinking harder before acting.",
+        summary: "The desire to feel certain before moving is endless — and largely unanswerable. You will rarely know in advance whether something is the right move. You will know after. Action is how the fog clears, not what you do once it has.",
+        reflection: "Where are you waiting for a feeling of certainty that probably won't arrive?",
+        action: "Take one small, concrete step on something you're 'still thinking about.' One email, one call, one purchase, one conversation."
+      },
+      {
+        title: "Three to five hours",
+        idea: "On a good day, you might do three to five hours of meaningful work. That's it. Plan accordingly.",
+        summary: "The fantasy of a 12-hour deep-work day is just that — a fantasy. Real cognitive output caps out far lower than the workday suggests. Accepting this means designing days that don't pretend otherwise: protecting the few hours that matter, and not punishing yourself for the rest.",
+        reflection: "Are you trying to do 8 hours of focused work a day? How is that working out?",
+        action: "Identify your best 3-hour window today. Protect it for one task. Accept that the rest of the day will be shallower work, admin, or rest — and that this is fine."
+      },
+      {
+        title: "Develop a taste for problems",
+        idea: "You don't get to a life without problems. You get to choose which problems you'd rather have.",
+        summary: "Every life — every job, relationship, project — comes with its own set of recurring frustrations. The question is never 'how do I get rid of problems' but 'which set of problems am I willing to live with for the trade-offs they bring.' Learning to enjoy the problems you've chosen is most of the battle.",
+        reflection: "What are the 'good problems' in your life — the ones that come bundled with things you actually want?",
+        action: "Name your top 3 current frustrations. For each, ask: what good thing is this the cost of? Decide whether to keep paying it."
+      },
+      {
+        title: "Let the future be the future",
+        idea: "Most of what you worry about will either not happen, or will be handled by a future version of you you haven't met yet.",
+        summary: "Today's mind cannot solve tomorrow's problems with today's information — and yet it tries, constantly. The you who arrives in that future will have resources, knowledge and circumstances you don't currently have. Your job is to handle today; theirs is tomorrow.",
+        reflection: "What are you trying to solve right now that genuinely belongs to a future version of you?",
+        action: "Make a 'not today' list. Write down 3 things you've been worrying about that don't need a decision today. Park them for a defined date."
+      },
+      {
+        title: "Done is a feeling",
+        idea: "Nothing is ever objectively finished. 'Done' is a decision you make.",
+        summary: "Work expands to fill the time available — and your perfectionism. There is no natural endpoint where a project announces itself complete. You declare it complete. Learning to do this — to call it, to ship, to move on — is one of the most underrated skills in adult life.",
+        reflection: "What are you still tinkering with that's already good enough?",
+        action: "Pick one in-progress task. Set a hard cutoff time today. When that time arrives, declare it done and move on regardless."
+      },
+      {
+        title: "Scruffy hospitality",
+        idea: "Don't wait until the house is tidy to invite people in. Don't wait until your life is in order to live it.",
+        summary: "Hosting, creating, sharing, starting — all of these get postponed in service of an imagined 'ready' state. The cost of the postponement is almost always greater than the awkwardness of doing it scruffily. People care about the invitation, not the spotless kitchen.",
+        reflection: "What are you keeping people out of — physically or otherwise — until conditions are 'right'?",
+        action: "Invite someone in today. To your home, your project, your half-baked idea. As-is."
+      },
+      {
+        title: "Quit something",
+        idea: "You free up far more capacity by stopping things than by starting them.",
+        summary: "The instinct, when overwhelmed, is to add a system, a tool, an optimisation. The faster path is usually subtraction. Something on the list is consuming attention that another thing genuinely deserves. Quit one thing this week — formally, deliberately — and notice what frees up.",
+        reflection: "What are you doing — at work, at home, online — that you'd happily quit if given permission?",
+        action: "Quit one thing today. A subscription, a commitment, a project, a habit. Don't replace it. Notice the gap."
+      }
+    ]
+  },
+  {
+    week: 3,
+    title: "Letting Go",
+    subtitle: "On releasing the need to control everything.",
+    days: [
+      {
+        title: "You can't please everyone",
+        idea: "Trying to be acceptable to everyone guarantees you'll be authentic to no one — including yourself.",
+        summary: "The cost of universal approval is your own shape. Every attempt to soften, rephrase or pre-empt someone's possible reaction shaves something off. At some point the choice becomes: keep trimming, or accept that some people will not like you, your work, or your decisions. They were never going to anyway.",
+        reflection: "Whose disapproval are you currently organising your life around?",
+        action: "Do one thing today that you've been holding back on because someone might disapprove. Send it, say it, do it."
+      },
+      {
+        title: "Your weirdness is the point",
+        idea: "The specific way you see things — your odd interests, your particular tastes — is not a quirk to be managed. It's the whole offer.",
+        summary: "There's enormous pressure to round off your edges in pursuit of broad appeal. But broad appeal is rarely what makes work, relationships or careers actually distinctive. The thing that's idiosyncratic about you is usually the thing other people would notice and value — if you stopped sanding it down.",
+        reflection: "What about you have you been quietly hiding because it doesn't fit the version you're trying to project?",
+        action: "Show one piece of your actual taste today. Recommend the obscure thing. Wear the weird shirt. Pitch the unusual idea."
+      },
+      {
+        title: "Treat yourself like you'd treat a friend",
+        idea: "You'd never speak to someone you cared about the way you speak to yourself most days.",
+        summary: "Self-criticism rarely produces the discipline it promises. It produces shame, then avoidance, then more reasons for self-criticism. The friend test is simple: if a close friend made the mistake you just made, what would you say to them? Say that.",
+        reflection: "What's the dominant tone of your inner voice this week? Would you tolerate it from another person?",
+        action: "Catch yourself in one moment of self-criticism today. Pause, then deliberately replace it with what you'd say to a friend in the same situation."
+      },
+      {
+        title: "What if this is enough?",
+        idea: "The constant pursuit of 'more' assumes the current amount is insufficient. Sometimes it isn't — you've just stopped looking.",
+        summary: "It's worth occasionally interrogating the engine of dissatisfaction. Is the next promotion, house, milestone actually going to deliver the feeling you're chasing? Or is the chase itself the problem? Sometimes the radical move is to stop, look around, and ask whether what you have already constitutes a good life.",
+        reflection: "In what part of your life might 'more' actually not be the answer?",
+        action: "Spend 10 minutes today writing about what you already have that, if you'd been told 10 years ago you'd have it, would have felt like enough."
+      },
+      {
+        title: "Stop trying to fix everyone",
+        idea: "Other people's problems are theirs. Your help is welcome only when invited, and not always then.",
+        summary: "A surprising amount of stress comes from trying to manage situations and emotions that aren't yours. Adult relationships work better when each person carries their own — including the right to make decisions you wouldn't make. Your job is rarely to rescue. Often it's just to be present.",
+        reflection: "Whose problem are you carrying that doesn't actually belong to you?",
+        action: "Identify one situation you're trying to fix for someone else. Step back. Ask them what, if anything, they actually want from you — and respect the answer."
+      },
+      {
+        title: "The reverse golden rule",
+        idea: "Don't do to yourself what you wouldn't accept being done to someone you love.",
+        summary: "Most of us would intervene immediately if someone treated a loved one the way we routinely treat ourselves — the overwork, the punishing schedules, the denied rest, the relentless judgment. Apply the same protective instinct inwards. Not as indulgence, but as basic decency.",
+        reflection: "What are you currently doing to yourself that you'd find unacceptable being done to someone you care about?",
+        action: "Identify one practice — a working pattern, a sleep habit, an internal rule — that fails the reverse golden rule. Change it today."
+      },
+      {
+        title: "Sit with the discomfort",
+        idea: "Most uncomfortable feelings get smaller when looked at and bigger when avoided.",
+        summary: "The instinct is to distract, scroll, eat or work the feeling away. The discomfort then waits, and grows. A surprising number of difficult emotions, when simply observed without intervention for a few minutes, dissolve. They were demanding attention, not action.",
+        reflection: "What feeling have you been routing around recently?",
+        action: "Next time the urge to distract hits today, pause for 90 seconds. Don't fix it. Just notice what's actually present underneath."
+      }
+    ]
+  },
+  {
+    week: 4,
+    title: "Showing Up",
+    subtitle: "On being present in the life you actually have.",
+    days: [
+      {
+        title: "Be a 'beginning'-er",
+        idea: "Starting is a skill. Like any skill, it gets easier with practice — and harder with avoidance.",
+        summary: "The longer you delay starting something, the bigger and more fragile it becomes in your mind. Starting badly, today, is the cure. Not waiting until you're 'in the right headspace.' That headspace usually arrives after the first few minutes of the work, not before.",
+        reflection: "What have you been treating as a single, terrifying 'start' that's actually a series of small beginnings?",
+        action: "Spend 5 minutes today on the thing you've been avoiding. Just 5. No expectation of progress. Then stop."
+      },
+      {
+        title: "Tomorrow you'll be a different person",
+        idea: "The version of you who will deal with tomorrow's tasks doesn't yet exist. Stop pre-living their day.",
+        summary: "Today's anxiety about tomorrow assumes today's resources will have to handle it. They won't. You will be slightly different — maybe rested, maybe informed by something that hasn't happened yet, maybe in a different mood. Trust that person to handle their own day.",
+        reflection: "What are you trying to solve today that's genuinely tomorrow's problem?",
+        action: "Make a list of everything you're carrying that's about a future day. Write 'not today' next to each. Close the list."
+      },
+      {
+        title: "Pay attention",
+        idea: "Where your attention goes is, in a real sense, what your life is.",
+        summary: "Time spent half-present in conversations, distracted from meals, scrolling through experiences — that time is, functionally, missing from your life. The discipline isn't time management. It's attention management. Choose what gets your full presence, and recognise that the rest is largely lost.",
+        reflection: "Where is most of your attention going right now? Is that where you want your life to be going?",
+        action: "Pick one activity today — a meal, a conversation, a walk. Do it with no second screen, no podcast, no scrolling. Just it."
+      },
+      {
+        title: "Don't outsource your life",
+        idea: "Your life is yours to live, not to delegate to systems, gurus, or productivity hacks.",
+        summary: "It's seductive to imagine that the right framework, app or routine will do the living for you. They won't. They can support, but they can't substitute. At some point the question 'what should I do today' has to be answered by you, with the inescapably-imperfect information you currently have.",
+        reflection: "What part of your life are you outsourcing to a system instead of actually engaging with?",
+        action: "Set aside one tool, app or framework you've been leaning on today. Make the same decision without it. Notice what changes."
+      },
+      {
+        title: "The cosy kind of ambition",
+        idea: "You can be ambitious about quiet, ordinary things. Not every meaningful goal needs to be loud.",
+        summary: "Ambition has been culturally hijacked to mean scale, visibility and success metrics. But you can be ambitious about being present with your kids. About the quality of your evenings. About reading slowly. These are not lesser goals — they're often the ones that, on a deathbed, get measured.",
+        reflection: "What's a quiet, unscalable thing you'd like to be more ambitious about?",
+        action: "Choose one 'cosy ambition' for the next month. Write it down. Plan one specific thing this week that moves toward it."
+      },
+      {
+        title: "It's already too late — and that's good",
+        idea: "You're already mid-life, mid-decision, mid-everything. There was never a clean starting point. Begin from where you are.",
+        summary: "Many people wait, internally, for the 'real life' to begin — once they've finished the degree, the project, the recovery, the relationship. The waiting room is the life. You're already living the only one you'll get. Acting from this knowledge — not as despair, but as permission — changes things.",
+        reflection: "What would you do today if you fully accepted that this is the life, not the rehearsal?",
+        action: "Do one thing today you'd been mentally saving for 'when things settle down.' They won't settle down. Do it now."
+      },
+      {
+        title: "Begin again",
+        idea: "You'll forget all of this. That's fine. The point is to keep returning.",
+        summary: "You will read all this, agree with it, and then in three weeks find yourself back in the same overwhelm, the same self-criticism, the same belief that one day you'll catch up. That's the human pattern. The work isn't to fix yourself permanently. It's to notice the drift and begin again, gently, as many times as needed.",
+        reflection: "When you next find yourself slipping back into old patterns, what's the kindest, most practical way to begin again?",
+        action: "Decide now: when you notice yourself overwhelmed in the coming weeks, what's the one small ritual you'll use to return? Write it down where you'll see it."
+      }
+    ]
+  }
+];
+
+const STORAGE_KEY = 'meditations-mortals-progress-v1';
+const JOURNAL_KEY = 'meditations-mortals-journals-v1';
+
+function loadProgress() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch (e) { return {}; }
+}
+
+function saveProgress(p) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(p)); } catch (e) {}
+}
+
+let progress = loadProgress();
+
+function loadJournals() {
+  try {
+    const raw = localStorage.getItem(JOURNAL_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch (e) { return {}; }
+}
+
+function saveJournals(j) {
+  try { localStorage.setItem(JOURNAL_KEY, JSON.stringify(j)); } catch (e) {}
+}
+
+let journals = loadJournals();
+
+function dayKey(w, d) { return `w${w}d${d}`; }
+
+function render() {
+  const root = document.getElementById('weeks');
+  root.innerHTML = '';
+  data.forEach(week => {
+    const completed = week.days.filter((_, i) => progress[dayKey(week.week, i+1)]).length;
+    const weekEl = document.createElement('div');
+    weekEl.className = 'week';
+    weekEl.innerHTML = `
+      <div class="week-header" onclick="toggleWeek(this)">
+        <div class="week-header-content">
+          <span class="week-number">Week ${String(week.week).padStart(2, '0')}</span>
+          <div class="week-title">${week.title}</div>
+          <div class="week-subtitle">${week.subtitle}</div>
+        </div>
+        <div class="week-meta">
+          <div class="chevron"></div>
+          <div class="week-progress">${completed}/7</div>
+        </div>
+      </div>
+      <div class="week-body">
+        ${week.days.map((day, i) => {
+          const key = dayKey(week.week, i+1);
+          const done = progress[key] ? 'completed' : '';
+          return `
+            <div class="day ${done}" data-key="${key}">
+              <div class="day-header" onclick="toggleDay(this)">
+                <span class="day-number">D${String((week.week-1)*7 + i + 1).padStart(2, '0')}</span>
+                <div class="day-title-wrap">
+                  <div class="day-title">${day.title}</div>
+                </div>
+                <div class="day-status"></div>
+                <div class="day-chevron"></div>
+              </div>
+              <div class="day-body">
+                <div class="day-content">
+                  <div class="key-idea">
+                    <div class="key-idea-label">Key Idea</div>
+                    <div class="key-idea-text">${day.idea}</div>
+                  </div>
+                  <div class="section">
+                    <div class="section-label">Summary</div>
+                    <div class="section-text">${day.summary}</div>
+                  </div>
+                  <div class="section reflection">
+                    <div class="section-label">Reflection</div>
+                    <div class="section-text">${day.reflection}</div>
+                  </div>
+                  <div class="section action">
+                    <div class="section-label">Practical Action</div>
+                    <div class="section-text">${day.action}</div>
+                  </div>
+                  <div class="journal">
+                    <div class="journal-header">
+                      <div class="journal-label">Journal</div>
+                      <div class="journal-status" id="status-${key}">Saved</div>
+                    </div>
+                    <textarea
+                      class="journal-textarea"
+                      id="journal-${key}"
+                      data-key="${key}"
+                      placeholder="Tasks, reflections, notes, what came up today…"
+                      oninput="handleJournalInput(this)"
+                    ></textarea>
+                    <div class="journal-meta">
+                      <span id="count-${key}">0 words</span>
+                      <span id="updated-${key}"></span>
+                    </div>
+                  </div>
+                  <div class="complete-toggle" onclick="toggleComplete(event, '${key}')">
+                    <div class="checkbox"></div>
+                    <div class="complete-label">Mark day complete</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    `;
+    root.appendChild(weekEl);
+  });
+  updateProgressBar();
+  hydrateJournals();
+}
+
+function hydrateJournals() {
+  Object.keys(journals).forEach(key => {
+    const ta = document.getElementById(`journal-${key}`);
+    if (ta && journals[key]) {
+      ta.value = journals[key].text || '';
+      updateJournalMeta(key);
+    }
+  });
+}
+
+function wordCount(s) {
+  const t = s.trim();
+  if (!t) return 0;
+  return t.split(/\s+/).length;
+}
+
+function formatTime(ts) {
+  if (!ts) return '';
+  const d = new Date(ts);
+  const now = new Date();
+  const sameDay = d.toDateString() === now.toDateString();
+  const opts = sameDay
+    ? { hour: '2-digit', minute: '2-digit' }
+    : { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' };
+  return 'Saved ' + d.toLocaleString(undefined, opts);
+}
+
+function updateJournalMeta(key) {
+  const ta = document.getElementById(`journal-${key}`);
+  if (!ta) return;
+  const wc = wordCount(ta.value);
+  const cEl = document.getElementById(`count-${key}`);
+  const uEl = document.getElementById(`updated-${key}`);
+  if (cEl) cEl.textContent = `${wc} word${wc === 1 ? '' : 's'}`;
+  if (uEl && journals[key]?.updated) uEl.textContent = formatTime(journals[key].updated);
+}
+
+const saveTimers = {};
+function handleJournalInput(ta) {
+  const key = ta.dataset.key;
+  const text = ta.value;
+
+  // immediate UI: word count
+  const wc = wordCount(text);
+  const cEl = document.getElementById(`count-${key}`);
+  if (cEl) cEl.textContent = `${wc} word${wc === 1 ? '' : 's'}`;
+
+  // debounce write
+  clearTimeout(saveTimers[key]);
+  saveTimers[key] = setTimeout(() => {
+    if (text.trim()) {
+      journals[key] = { text, updated: Date.now() };
+    } else {
+      delete journals[key];
+    }
+    saveJournals(journals);
+    const uEl = document.getElementById(`updated-${key}`);
+    if (uEl) uEl.textContent = journals[key] ? formatTime(journals[key].updated) : '';
+    const status = document.getElementById(`status-${key}`);
+    if (status) {
+      status.classList.add('visible');
+      clearTimeout(status._t);
+      status._t = setTimeout(() => status.classList.remove('visible'), 1400);
+    }
+  }, 500);
+}
+
+function toggleWeek(el) {
+  el.parentElement.classList.toggle('open');
+}
+
+function toggleDay(el) {
+  el.parentElement.classList.toggle('open');
+}
+
+function toggleComplete(e, key) {
+  e.stopPropagation();
+  progress[key] = !progress[key];
+  if (!progress[key]) delete progress[key];
+  saveProgress(progress);
+  
+  const dayEl = document.querySelector(`[data-key="${key}"]`);
+  dayEl.classList.toggle('completed');
+  
+  // update week count
+  const weekNum = parseInt(key.match(/w(\d+)/)[1]);
+  const week = data.find(w => w.week === weekNum);
+  const completed = week.days.filter((_, i) => progress[dayKey(weekNum, i+1)]).length;
+  const weekEl = dayEl.closest('.week');
+  weekEl.querySelector('.week-progress').textContent = `${completed}/7`;
+  
+  updateProgressBar();
+}
+
+function updateProgressBar() {
+  const total = Object.keys(progress).filter(k => progress[k]).length;
+  document.getElementById('progress-num').textContent = total;
+  document.getElementById('progress-fill').style.width = `${(total / 28) * 100}%`;
+}
+
+function resetProgress() {
+  const wipeJournals = confirm('Reset all checkbox progress?\n\nClick OK to also wipe all journal entries.\nClick Cancel to keep journals (you\'ll then be asked to confirm checkbox reset only).');
+  if (wipeJournals) {
+    progress = {};
+    journals = {};
+    saveProgress(progress);
+    saveJournals(journals);
+    render();
+    return;
+  }
+  if (confirm('Reset checkbox progress only? Journals will be kept.')) {
+    progress = {};
+    saveProgress(progress);
+    render();
+  }
+}
+
+render();
+
+// Open week 1 by default on first load
+if (Object.keys(progress).length === 0) {
+  document.querySelector('.week')?.classList.add('open');
+}
+</script>
+</body>
+</html>
